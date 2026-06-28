@@ -136,3 +136,6 @@ export function useOfflineSync(syncFn?: (item: SyncQueueItem) => Promise<boolean
     flushQueue,
   };
 }
+  
+// v1.1 - exponential backoff retry  
+  
