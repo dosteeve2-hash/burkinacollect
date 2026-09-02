@@ -91,7 +91,7 @@ export default function AboutPage() {
               Le problème
             </h2>
             <p style={{ color: "var(--gray-600)" }} className="text-sm leading-relaxed mb-4">
-              Au Burkina Faso et dans une grande partie de l'Afrique de l'Ouest,
+              Au Burkina Faso et dans une grande partie de l’Afrique de l’Ouest,
               les agents terrain — enquêteurs, agents de santé, superviseurs ONG —
               utilisent encore des <strong>fiches papier</strong> pour collecter
               leurs données.
@@ -120,7 +120,7 @@ export default function AboutPage() {
               BurkinaCollect est une <strong>application mobile + tableau de bord web</strong>{" "}
               conçue pour fonctionner en mode <em>offline-first</em>. Les agents
               remplissent leurs formulaires sur le terrain, et les données se
-              synchronisent automatiquement dès qu'une connexion est disponible.
+              synchronisent automatiquement dès qu’une connexion est disponible.
             </p>
             <ul style={{ color: "var(--gray-600)" }} className="text-sm space-y-2 list-none">
               {[
@@ -143,13 +143,13 @@ export default function AboutPage() {
             style={{ color: "var(--navy)" }}
             className="text-2xl font-bold text-center mb-3"
           >
-            Cas d'usage
+            Cas d’usage
           </h2>
           <p
             style={{ color: "var(--gray-600)" }}
             className="text-center text-sm mb-12"
           >
-            BurkinaCollect s'adapte à tous les contextes de collecte terrain.
+            BurkinaCollect s’adapte à tous les contextes de collecte terrain.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map(({ icon, title, desc }) => (
@@ -223,7 +223,7 @@ export default function AboutPage() {
             style={{ color: "var(--navy)" }}
             className="text-2xl font-bold mb-12"
           >
-            L'équipe
+            L’équipe
           </h2>
           <div
             style={{ border: "2px solid var(--gold)" }}
@@ -258,7 +258,7 @@ export default function AboutPage() {
             <p style={{ color: "var(--gray-600)" }} className="text-sm leading-relaxed">
               Développeur full-stack passionné par les solutions technologiques
               adaptées au contexte africain. Construit la tech africaine de
-              demain, aujourd'hui.
+              demain, aujourd’hui.
             </p>
             <div className="flex justify-center gap-4 mt-5">
               <a
@@ -321,7 +321,7 @@ export default function AboutPage() {
               style={{ border: "1px solid rgba(255,255,255,0.3)", color: "white" }}
               className="px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/10 transition-colors"
             >
-              ← Retour à l'accueil
+              ← Retour à l’accueil
             </Link>
           </div>
         </div>

@@ -58,7 +58,7 @@ export default function HomePage() {
             }}
             className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
           >
-            Burkina Faso · Afrique de l'Ouest
+            Burkina Faso · Afrique de l’Ouest
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
             La collecte terrain,{" "}
@@ -158,7 +158,7 @@ export default function HomePage() {
             style={{ color: "var(--navy)" }}
             className="text-2xl font-bold mb-3"
           >
-            Cas d'usage
+            Cas d’usage
           </h2>
           <p style={{ color: "var(--gray-600)" }} className="text-sm mb-10">
             Conçu pour les organisations qui travaillent sur le terrain au Burkina Faso.
