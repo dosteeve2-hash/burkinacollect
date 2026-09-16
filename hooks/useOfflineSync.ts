@@ -35,9 +35,57 @@ function saveQueue(items: SyncQueueItem[]): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
 
+export interface FlushResult {
+  /** Items à retenter : l'envoi a échoué mais il reste des tentatives. */
+  remaining: SyncQueueItem[];
+  /** Items dont les tentatives sont épuisées. Ils ne sont PAS perdus. */
+  failed: SyncQueueItem[];
+  /** Nombre d'items partis avec succès. */
+  synced: number;
+}
+
+/**
+ * Rejoue la file une fois. Extrait du hook pour être testable sans React.
+ *
+ * Un item dont les tentatives sont épuisées était auparavant simplement
+ * absent de la file reconstruite : une soumission terrain ayant échoué
+ * MAX_RETRIES fois disparaissait sans trace. Elle est désormais renvoyée
+ * dans `failed`, à charge de l'appelant de la présenter à l'agent.
+ */
+export async function processQueue(
+  items: readonly SyncQueueItem[],
+  syncFn: (item: SyncQueueItem) => Promise<boolean>,
+): Promise<FlushResult> {
+  const remaining: SyncQueueItem[] = [];
+  const failed: SyncQueueItem[] = [];
+  let synced = 0;
+
+  for (const item of items) {
+    let ok = false;
+    try {
+      ok = await syncFn(item);
+    } catch {
+      ok = false;
+    }
+
+    if (ok) {
+      synced += 1;
+    } else if (item.retries < MAX_RETRIES) {
+      remaining.push({ ...item, retries: item.retries + 1 });
+    } else {
+      failed.push(item);
+    }
+  }
+
+  return { remaining, failed, synced };
+}
+
 export function useOfflineSync(syncFn?: (item: SyncQueueItem) => Promise<boolean>) {
   const [queue, setQueue] = useState<SyncQueueItem[]>([]);
   const [status, setStatus] = useState<SyncStatus>("idle");
+  // Items abandonnés après MAX_RETRIES : conservés pour être montrés à
+  // l'agent plutôt que perdus en silence.
+  const [failed, setFailed] = useState<SyncQueueItem[]>([]);
   const [isOnline, setIsOnline] = useState(
     typeof navigator !== "undefined" ? navigator.onLine : true
   );
@@ -95,27 +143,12 @@ export function useOfflineSync(syncFn?: (item: SyncQueueItem) => Promise<boolean
     if (!isOnline || !syncFn || queue.length === 0) return;
     setStatus("syncing");
 
-    let hasError = false;
-    const remaining: SyncQueueItem[] = [];
-
-    for (const item of queue) {
-      try {
-        const ok = await syncFn(item);
-        if (!ok && item.retries < MAX_RETRIES) {
-          remaining.push({ ...item, retries: item.retries + 1 });
-          hasError = true;
-        }
-      } catch {
-        if (item.retries < MAX_RETRIES) {
-          remaining.push({ ...item, retries: item.retries + 1 });
-        }
-        hasError = true;
-      }
-    }
+    const { remaining, failed } = await processQueue(queue, syncFn);
 
     setQueue(remaining);
     saveQueue(remaining);
-    setStatus(hasError ? "error" : "synced");
+    setFailed((prev) => [...prev, ...failed]);
+    setStatus(remaining.length > 0 || failed.length > 0 ? "error" : "synced");
   }, [isOnline, syncFn, queue]);
 
   // Déclencher flush auto quand on revient en ligne
@@ -128,9 +161,11 @@ export function useOfflineSync(syncFn?: (item: SyncQueueItem) => Promise<boolean
 
   return {
     queue,
+    failed,
     status,
     isOnline,
     pendingCount: queue.length,
+    failedCount: failed.length,
     enqueue,
     dequeue,
     flushQueue,
