@@ -172,5 +172,15 @@ export function useOfflineSync(syncFn?: (item: SyncQueueItem) => Promise<boolean
   };
 }
   
-// v1.1 - exponential backoff retry  
-  
+// PAS de backoff exponentiel. Ce fichier portait la note « v1.1 - exponential
+// backoff retry » ; rien dans le code n'en implémente. `processQueue` incrémente
+// `retries` et rend la main — aucune attente entre deux tentatives.
+//
+// Ce n'est pas un défaut aujourd'hui : la file n'est rejouée que sur l'événement
+// `online` ou par un appel explicite à `flushQueue`, jamais en boucle serrée. Il
+// n'y a donc rien qui martèle un réseau instable.
+//
+// Le jour où un rejeu périodique sera ajouté, le backoff deviendra nécessaire —
+// sur une connexion 2G intermittente, réessayer sans attendre coûte de la
+// batterie et du forfait pour rien. Écrire la note avant le code, c'est ce qui
+// a fait croire pendant des semaines que la protection existait.
