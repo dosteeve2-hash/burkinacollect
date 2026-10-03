@@ -73,11 +73,11 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://burkinacollect.vercel.app"
+              href="https://github.com/dosteeve2-hash/burkinacollect"
               style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
               className="px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
             >
-              Voir la démo →
+              Voir le code →
             </a>
             <Link
               href="/about"
@@ -100,9 +100,9 @@ export default function HomePage() {
       >
         <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center">
           {[
-            { value: "500+", label: "Collecteurs formés" },
-            { value: "1 200+", label: "Formulaires créés" },
-            { value: "35", label: "Régions couvertes" },
+            { value: "100 %", label: "Utilisable hors connexion" },
+            { value: "Auto", label: "Synchronisation au retour du réseau" },
+            { value: "MVP", label: "En développement — pilote recherché" },
           ].map(({ value, label }) => (
             <div key={label}>
               <p

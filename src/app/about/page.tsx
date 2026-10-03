@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "500+", label: "Collecteurs formés" },
-  { value: "1 200+", label: "Formulaires créés" },
-  { value: "35", label: "Régions couvertes" },
+  { value: "100 %", label: "Utilisable hors connexion" },
+  { value: "Auto", label: "Synchronisation au retour du réseau" },
+  { value: "MVP", label: "En développement — pilote recherché" },
 ];
 
 const useCases = [
