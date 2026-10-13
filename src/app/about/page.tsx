@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "500+", label: "Collecteurs formés" },
-  { value: "1 200+", label: "Formulaires créés" },
-  { value: "35", label: "Régions couvertes" },
+  { value: "Hors ligne", label: "Conçu pour fonctionner sans connexion" },
+  { value: "Synchro", label: "Envoi des données au retour du réseau" },
+  { value: "MVP", label: "En développement — pilote recherché" },
 ];
 
 const useCases = [
@@ -266,14 +266,14 @@ export default function AboutPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--cyan)" }}
-                className="text-sm hover:underline"
+                className="inline-flex min-h-10 items-center px-2 text-sm hover:underline"
               >
                 GitHub
               </a>
               <a
                 href="mailto:docompaore2@gmail.com"
                 style={{ color: "var(--cyan)" }}
-                className="text-sm hover:underline"
+                className="inline-flex min-h-10 items-center px-2 text-sm hover:underline"
               >
                 Contact
               </a>
@@ -282,7 +282,7 @@ export default function AboutPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--cyan)" }}
-                className="text-sm hover:underline"
+                className="inline-flex min-h-10 items-center px-2 text-sm hover:underline"
               >
                 Portfolio
               </a>

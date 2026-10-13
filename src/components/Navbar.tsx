@@ -45,7 +45,7 @@ export default function Navbar() {
                     color: active ? "var(--gold)" : "rgba(255,255,255,0.85)",
                     borderBottom: active ? "2px solid var(--gold)" : "2px solid transparent",
                   }}
-                  className="text-sm font-medium pb-1 transition-colors hover:text-white"
+                  className="inline-flex min-h-10 items-center text-sm font-medium transition-colors hover:text-white"
                 >
                   {label}
                 </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "var(--cyan)" }}
-              className="text-sm font-medium hover:underline"
+              className="inline-flex min-h-10 items-center text-sm font-medium hover:underline"
             >
               GitHub ↗
             </a>
