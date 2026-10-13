@@ -34,3 +34,13 @@ body {
   background-color: var(--white);
   color: var(--gray-800);
 }
+
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 40px;
+    min-width: 40px;
+  }
+}

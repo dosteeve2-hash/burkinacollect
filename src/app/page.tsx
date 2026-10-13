@@ -100,8 +100,8 @@ export default function HomePage() {
       >
         <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center">
           {[
-            { value: "100 %", label: "Utilisable hors connexion" },
-            { value: "Auto", label: "Synchronisation au retour du réseau" },
+            { value: "Hors ligne", label: "Conçu pour fonctionner sans connexion" },
+            { value: "Synchro", label: "Envoi des données au retour du réseau" },
             { value: "MVP", label: "En développement — pilote recherché" },
           ].map(({ value, label }) => (
             <div key={label}>

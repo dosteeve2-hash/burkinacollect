@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "BurkinaCollect — Collecte terrain offline-first",
   description:
-    "Plateforme de collecte de données terrain au Burkina Faso. Dashboard offline-first pour ONG, gouvernement et enquêtes de terrain.",
+    "Collecte de données terrain offline-first pour le Burkina Faso, en développement. Projet à l’état de MVP, pilotes recherchés (ONG, enquêtes de terrain).",
 };
 
 export default function RootLayout({
