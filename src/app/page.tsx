@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProjectVideo } from "@/components/ProjectVideo";
 
 const features = [
   {
@@ -90,6 +91,39 @@ export default function HomePage() {
               En savoir plus
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Vidéo de présentation */}
+      <section
+        id="video"
+        style={{ backgroundColor: "var(--navy)" }}
+        className="px-4 pb-16 text-center"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div
+            style={{ border: "1px solid rgba(212,175,55,0.35)" }}
+            className="rounded-2xl overflow-hidden shadow-xl"
+          >
+            <ProjectVideo
+              slug="burkinacollect"
+              lang="fr"
+              title="Vidéo de présentation de BurkinaCollect"
+            />
+          </div>
+          <a
+            href="mailto:dosteeve2@gmail.com?subject=Organisation%20pilote%20BurkinaCollect"
+            style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
+            className="inline-block mt-8 px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
+          >
+            Devenir organisation pilote
+          </a>
+          <p
+            style={{ color: "rgba(255,255,255,0.7)" }}
+            className="text-xs mt-3"
+          >
+            En développement : seule cette page de présentation est en ligne pour l’instant.
+          </p>
         </div>
       </section>
 
