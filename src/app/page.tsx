@@ -112,7 +112,7 @@ export default function HomePage() {
             />
           </div>
           <a
-            href="mailto:dosteeve2@gmail.com?subject=Organisation%20pilote%20BurkinaCollect"
+            href="mailto:docompaore2@gmail.com?subject=Organisation%20pilote%20BurkinaCollect"
             style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
             className="inline-block mt-8 px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
           >
