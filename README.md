@@ -1,3 +1,5 @@
+<p align="center"><img src="public/brand/mark.svg" alt="BurkinaCollect" width="72" height="72"></p>
+
 <div align="center">
 
 <h1>
