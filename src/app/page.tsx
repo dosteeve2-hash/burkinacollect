@@ -1,222 +1,119 @@
-import Link from "next/link";
+import Image from "next/image";
+import { BurkinaMapIllustration, FieldSyncIllustration } from "@/components/PublicVisuals";
 
-const features = [
+const flow = [
   {
-    icon: "📋",
-    title: "Dashboard opérationnel",
-    desc: "Vue multi-pages des indicateurs terrain en temps réel.",
+    title: "La fiche se remplit sur place",
+    description:
+      "Le geste visé est simple : compléter une fiche sur un téléphone, même quand le réseau manque.",
   },
   {
-    icon: "🔄",
-    title: "Sync offline-first",
-    desc: "File de synchronisation automatique au retour de connexion.",
+    title: "Le travail reste sur l’appareil",
+    description:
+      "Un prototype de file locale de synchronisation existe dans le code. L’interface de collecte complète reste à construire.",
   },
   {
-    icon: "🔧",
-    title: "Form builder",
-    desc: "Construction de formulaires terrain avec champs persistants.",
+    title: "La synchronisation attend le réseau",
+    description:
+      "Quand une connexion revient, le principe prévu est de transmettre les éléments en attente. Aucun service de collecte complet n’est encore ouvert.",
   },
-  {
-    icon: "👥",
-    title: "Gestion des agents",
-    desc: "Statuts opérationnels des agents terrain en temps réel.",
-  },
-  {
-    icon: "🗺️",
-    title: "Carte des zones",
-    desc: "Alertes géographiques et soumissions en attente par région.",
-  },
-  {
-    icon: "📤",
-    title: "Export CSV",
-    desc: "Export immédiat des données collectées pour analyse.",
-  },
-];
-
-const useCases = [
-  { icon: "🌾", label: "Enquêtes agricoles" },
-  { icon: "🏥", label: "Suivi santé" },
-  { icon: "🏛️", label: "Services gouvernementaux" },
-  { icon: "🤝", label: "Opérations ONG" },
-  { icon: "📊", label: "Études de marché" },
-  { icon: "📍", label: "Recensement terrain" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section
-        style={{ backgroundColor: "var(--navy)" }}
-        className="py-24 px-4 text-center"
-      >
-        <div className="max-w-3xl mx-auto">
-          <span
-            style={{
-              backgroundColor: "var(--gold)",
-              color: "var(--navy)",
-            }}
-            className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
-          >
-            Burkina Faso · Afrique de l’Ouest
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
-            La collecte terrain,{" "}
-            <span style={{ color: "var(--gold)" }}>digitalisée</span>
-          </h1>
-          <p
-            style={{ color: "rgba(255,255,255,0.75)" }}
-            className="text-lg mb-10 max-w-xl mx-auto"
-          >
-            BurkinaCollect remplace les fiches papier par une solution mobile et
-            web — qui fonctionne même sans connexion internet.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <Image
+                src="/brand/mark.svg"
+                alt=""
+                width={24}
+                height={24}
+                aria-hidden="true"
+              />{" "}
+              Collecte de terrain
+            </p>
+            <h1>
+              <span>Collectez sans réseau,</span>
+              <span>retrouvez tout au bureau.</span>
+            </h1>
+            <p className="hero-description">
+              BurkinaCollect prépare un outil de collecte pensé pour les équipes de terrain
+              qui travaillent sans connexion fiable.
+            </p>
             <a
-              href="https://github.com/dosteeve2-hash/burkinacollect"
-              style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
-              className="px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
+              className="primary-action"
+              href="mailto:docompaore2@gmail.com?subject=Demande%20de%20pilote%20BurkinaCollect"
             >
-              Voir le code →
+              Demander un pilote <span className="action-arrow" aria-hidden="true">→</span>
             </a>
-            <Link
-              href="/about"
-              style={{
-                border: "1px solid rgba(255,255,255,0.3)",
-                color: "white",
-              }}
-              className="px-6 py-3 rounded-lg font-semibold text-sm hover:bg-white/10 transition-colors"
-            >
-              En savoir plus
-            </Link>
-            <a
-              href="mailto:docompaore2@gmail.com?subject=Organisation%20pilote%20BurkinaCollect"
-              style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
-              className="px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
-            >
-              Devenir organisation pilote
-            </a>
+            <p className="hero-footnote">
+              Projet en développement. L’application complète de collecte n’est pas encore
+              disponible.
+            </p>
           </div>
-          <p
-            style={{ color: "rgba(255,255,255,0.7)" }}
-            className="text-xs mt-3"
-          >
-            En développement : seule cette page de présentation est en ligne pour l’instant.
-          </p>
+          <FieldSyncIllustration />
         </div>
       </section>
 
-      {/* Stats */}
-      <section
-        style={{ backgroundColor: "var(--navy-dark)" }}
-        className="py-10 px-4"
-      >
-        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center">
-          {[
-            { value: "Hors ligne", label: "Conçu pour fonctionner sans connexion" },
-            { value: "Synchro", label: "Envoi des données au retour du réseau" },
-            { value: "MVP", label: "En développement — pilote recherché" },
-          ].map(({ value, label }) => (
-            <div key={label}>
-              <p
-                style={{ color: "var(--gold)" }}
-                className="text-3xl font-extrabold"
-              >
-                {value}
-              </p>
-              <p style={{ color: "rgba(255,255,255,0.7)" }} className="text-sm mt-1">
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 px-4" style={{ backgroundColor: "var(--gray-50)" }}>
-        <div className="max-w-5xl mx-auto">
-          <h2
-            style={{ color: "var(--navy)" }}
-            className="text-2xl font-bold text-center mb-12"
-          >
-            Fonctionnalités clés
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map(({ icon, title, desc }) => (
-              <div
-                key={title}
-                style={{ borderTop: "3px solid var(--cyan)" }}
-                className="bg-white rounded-xl p-6 shadow-sm"
-              >
-                <span className="text-3xl">{icon}</span>
-                <h3
-                  style={{ color: "var(--navy)" }}
-                  className="font-bold mt-3 mb-2"
-                >
-                  {title}
-                </h3>
-                <p style={{ color: "var(--gray-600)" }} className="text-sm">
-                  {desc}
-                </p>
-              </div>
+      <section className="section flow-section">
+        <div className="section-inner flow-grid">
+          <div>
+            <h2 className="section-heading">Le terrain continue, même sans signal.</h2>
+            <p className="section-lead">
+              BurkinaCollect explore une synchronisation qui attend le retour du réseau au lieu
+              d’interrompre le travail.
+            </p>
+          </div>
+          <ol className="flow-list">
+            {flow.map(({ title, description }) => (
+              <li className="flow-item" key={title}>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* Use cases */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            style={{ color: "var(--navy)" }}
-            className="text-2xl font-bold mb-3"
-          >
-            Cas d’usage
-          </h2>
-          <p style={{ color: "var(--gray-600)" }} className="text-sm mb-10">
-            Conçu pour les organisations qui travaillent sur le terrain au Burkina Faso.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {useCases.map(({ icon, label }) => (
-              <span
-                key={label}
-                style={{
-                  backgroundColor: "var(--gray-100)",
-                  color: "var(--navy)",
-                  border: "1px solid rgba(30,58,95,0.15)",
-                }}
-                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium"
-              >
-                {icon} {label}
-              </span>
-            ))}
+      <section className="section map-section">
+        <div className="section-inner map-layout">
+          <div>
+            <h2 className="section-heading">Pensé pour les réalités du Burkina Faso.</h2>
+            <p className="section-lead">
+              Une illustration du contexte visé, pas une carte de couverture ni des données
+              issues de collectes réelles.
+            </p>
+            <p className="map-note">
+              Le projet s’adresse aux équipes qui recueillent des informations sur le terrain,
+              notamment les enquêteurs et les organisations.
+            </p>
           </div>
+          <BurkinaMapIllustration />
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        style={{ backgroundColor: "var(--navy)" }}
-        className="py-16 px-4 text-center"
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-4">
-            Prêt à digitaliser votre collecte ?
-          </h2>
-          <p
-            style={{ color: "rgba(255,255,255,0.7)" }}
-            className="text-sm mb-8"
-          >
-            Découvrez comment BurkinaCollect peut transformer les opérations de
-            votre organisation terrain.
-          </p>
-          <Link
-            href="/about"
-            style={{ backgroundColor: "var(--gold)", color: "var(--navy)" }}
-            className="inline-block px-8 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
-          >
-            Découvrir le projet →
-          </Link>
+      <section className="section truth-section">
+        <div className="section-inner truth-layout">
+          <div className="truth-block">
+            <h2>Déjà présent dans le projet</h2>
+            <p>
+              Une page publique de présentation et un prototype de file locale qui gère les
+              états hors ligne et les tentatives de synchronisation.
+            </p>
+          </div>
+          <div className="truth-block in-progress">
+            <h2>Encore en développement</h2>
+            <p>
+              L’application de collecte complète, ses formulaires utilisables sur le terrain,
+              les comptes d’équipe et le service connecté de synchronisation ne sont pas
+              disponibles aujourd’hui.
+            </p>
+          </div>
         </div>
       </section>
     </>
