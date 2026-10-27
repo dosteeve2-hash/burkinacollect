@@ -7,16 +7,15 @@
   BurkinaCollect
 </h1>
 
-<p><em>Dashboard de collecte terrain offline-first pour les organisations du Burkina Faso et de l'Afrique de l'Ouest</em></p>
+<p><em>Projet en développement : outil de collecte terrain hors ligne pour le Burkina Faso et l'Afrique de l'Ouest. Aujourd'hui : page de présentation et prototype de file de synchronisation.</em></p>
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?style=flat-square&logo=vercel)](https://burkinacollect-bf.vercel.app)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-**[🌍 Voir le site live](https://burkinacollect-bf.vercel.app)** · **[🐛 Signaler un bug](https://github.com/dosteeve2-hash/burkinacollect/issues)** · **[💡 Proposer une fonctionnalité](https://github.com/dosteeve2-hash/burkinacollect/issues)**
+**[🌍 Voir le site de présentation](https://burkinacollect-bf.vercel.app)** · **[🐛 Signaler un bug](https://github.com/dosteeve2-hash/burkinacollect/issues)** · **[💡 Proposer une fonctionnalité](https://github.com/dosteeve2-hash/burkinacollect/issues)**
 
 </div>
 
@@ -24,34 +23,41 @@
 
 ## 📖 À propos / About
 
-**FR** — BurkinaCollect est un dashboard de collecte de données terrain conçu pour les organisations locales du Burkina Faso et de la sous-région ouest-africaine. Il fonctionne en mode offline-first, ce qui le rend adapté aux zones à connectivité limitée : agriculture, santé, distribution d'aide, services municipaux, opérations de terrain.
+**FR** — BurkinaCollect est un projet d'outil de collecte de données de terrain pour les organisations locales du Burkina Faso et de la sous-région : agriculture, santé, distribution d'aide, services municipaux. Le principe visé est de remplir des fiches sans connexion, puis de synchroniser quand le réseau revient.
 
-**EN** — BurkinaCollect is an offline-first field data collection dashboard built for local organizations in Burkina Faso and West Africa. It works where connectivity is unreliable: agriculture, healthcare, aid distribution, municipal services, and field operations.
+**État réel : il n'y a pas encore d'application de collecte.** Le dépôt contient le site de présentation (accueil, à propos, tarifs) et un prototype de file de synchronisation hors ligne, sans interface de collecte ni backend.
+
+**EN** — BurkinaCollect is a planned offline-first field data collection tool for organizations in Burkina Faso and West Africa. **There is no collection app yet**: the repository contains the presentation site (home, about, pricing) and an offline sync-queue prototype, with no collection UI and no backend.
 
 ---
 
-## ✨ Fonctionnalités / Features
+## ✅ Ce qui existe aujourd'hui / What exists today
 
-| Fonctionnalité | Description |
+| Élément | État |
 |---|---|
-| 📋 **Dashboard opérationnel** | Vue multi-pages des indicateurs terrain en temps réel |
-| 🔧 **Form builder** | Construction de formulaires terrain avec champs persistants |
-| 🔄 **Sync Queue offline** | File de synchronisation simulée — fonctionne sans connexion |
-| 👥 **Gestion des agents** | Statuts opérationnels des agents terrain |
-| 🗺️ **Carte des zones** | Alertes géographiques et soumissions en attente |
-| 📊 **Dashboard superviseur** | Métriques de qualité et de synchronisation |
-| 🔍 **Journal d'audit** | Traçabilité complète des actions importantes |
-| 📤 **Export CSV** | Export des données collectées |
-| 📱 **Responsive** | Interface adaptée mobile et desktop |
+| Site de présentation (`/`, `/about`, `/tarifs`) | En ligne ; aucun tarif publié |
+| Hook `useOfflineSync` (`hooks/useOfflineSync.ts`) | Prototype : file d'attente dans `localStorage`, tentatives limitées, éléments en échec conservés |
+| Tests (`__tests__/offline-sync.test.ts`) et CI | Présents, couvrent la file de synchronisation |
+
+## 🔭 Prévu, pas encore construit / Planned, not built
+
+| Fonctionnalité | État |
+|---|---|
+| Formulaires de terrain (form builder) | Prévu |
+| Soumissions avec GPS, photos, horodatage | Prévu |
+| Gestion des agents, tableau de bord superviseur, carte des zones | Prévu |
+| Journal d'audit, export CSV | Prévu |
+| Stockage hors ligne robuste (IndexedDB) et synchronisation vers un backend | Prévu : la file actuelle simule l'envoi |
 
 ---
 
 ## 🛠️ Stack technique
 
 ```
-Frontend  : Next.js 16 (App Router) + React 19 + TypeScript 5
+Frontend  : Next.js 15 (App Router) + React 19 + TypeScript 5
 Styling   : Tailwind CSS v4
 Linting   : ESLint 9 + eslint-config-next
+Tests     : Vitest
 Deploy    : Vercel
 ```
 
@@ -83,10 +89,11 @@ Ouvre [http://localhost:3000](http://localhost:3000) dans ton navigateur.
 ### Scripts disponibles
 
 ```bash
-npm run dev      # Serveur de développement avec Turbopack
+npm run dev      # Serveur de développement (Turbopack)
 npm run build    # Build de production
 npm run start    # Démarre le serveur de production
 npm run lint     # Analyse statique du code
+npm test         # Tests Vitest (file de synchronisation)
 ```
 
 ---
@@ -100,25 +107,19 @@ Le projet est optimisé pour [Vercel](https://vercel.com). Chaque push sur `main
 vercel --prod
 ```
 
-**URL de production :** https://burkinacollect-bf.vercel.app
+**Site de présentation :** https://burkinacollect-bf.vercel.app (pas d'application de collecte)
 
 ---
 
 ## 🗺️ Roadmap
 
+- [ ] Interface de collecte (formulaires de terrain)
 - [ ] Authentification multi-rôles (agent / superviseur / admin)
-- [ ] Formulaires dynamiques avec validation avancée
 - [ ] Soumissions avec GPS, photos et timestamps
 - [ ] Stockage offline via IndexedDB
 - [ ] Synchronisation sécurisée vers backend PostgreSQL
 - [ ] Analytics et détection d'anomalies
 - [ ] Support multilingue (Français, Mooré, Dioula, Fulfuldé)
-
----
-
-## 📄 Licence / License
-
-Ce projet est sous licence [MIT](LICENSE).
 
 ---
 
