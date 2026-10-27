@@ -132,3 +132,6 @@ Si ce projet vous inspire, laissez une ⭐ — Fait avec ❤️ au Burkina Faso
 *Construire la tech africaine de demain, aujourd'hui.*
 
 </div>
+## Licence
+
+Tous droits réservés (voir LICENSE).
