@@ -12,7 +12,7 @@ export function FieldSyncIllustration() {
           <span>FICHE DE COLLECTE</span>
           <Image
             className="phone-topline-mark"
-            src="/mark.svg"
+            src="/brand/mark.svg"
             alt=""
             width={64}
             height={64}

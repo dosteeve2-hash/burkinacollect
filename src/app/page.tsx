@@ -27,7 +27,7 @@ export default function HomePage() {
           <div className="hero-copy">
             <p className="eyebrow">
               <Image
-                src="/mark.svg"
+                src="/brand/mark.svg"
                 alt=""
                 width={24}
                 height={24}
