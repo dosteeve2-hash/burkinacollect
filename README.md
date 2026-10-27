@@ -13,10 +13,10 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
-[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?style=flat-square&logo=vercel)](https://burkinacollect.vercel.app)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?style=flat-square&logo=vercel)](https://burkinacollect-bf.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-**[🌍 Voir le site live](https://burkinacollect.vercel.app)** · **[🐛 Signaler un bug](https://github.com/dosteeve2-hash/burkinacollect/issues)** · **[💡 Proposer une fonctionnalité](https://github.com/dosteeve2-hash/burkinacollect/issues)**
+**[🌍 Voir le site live](https://burkinacollect-bf.vercel.app)** · **[🐛 Signaler un bug](https://github.com/dosteeve2-hash/burkinacollect/issues)** · **[💡 Proposer une fonctionnalité](https://github.com/dosteeve2-hash/burkinacollect/issues)**
 
 </div>
 
@@ -100,7 +100,7 @@ Le projet est optimisé pour [Vercel](https://vercel.com). Chaque push sur `main
 vercel --prod
 ```
 
-**URL de production :** https://burkinacollect.vercel.app
+**URL de production :** https://burkinacollect-bf.vercel.app
 
 ---
 
